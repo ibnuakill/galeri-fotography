@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - Luminara</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .about {
+        padding: 60px 10%;
+        background: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .about-img {
+        max-width: 350px; /* batasi lebar maksimal */
+        width: 100%; /* tetap responsif */
+        height: auto; /* biar tidak ketarik */
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        object-fit: cover;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 280px;
+      }
+      .about-text {
+        color: #333; /* warna teks agar terlihat */
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .about-text h2 {
+        color: #222;
+        margin-bottom: 10px;
+      }
+
+      .about {
+        background: #f9f9f9; /* kasih background terang supaya teks kontras */
+        padding: 50px 20px;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .about-img {
+        width: 350px; /* atur biar tidak terlalu besar */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="navbar">
+        <h2>Luminara</h2>
+        <span class="menu-toggle">&#9776;</span>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#gallery">Galeri</a></li>
+          <li><a href="tentang.html" class="active">Tentang</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Tentang <span class="typing"></span></h1>
+      <p>
+        Mengenal lebih dekat siapa kami dan cerita di balik setiap jepretan.
+      </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="about-content">
+        <img src="img/luminarateam.jpeg" alt="Tim Luminara" class="about-img" />
+        <div class="about-text">
+          <h2>Siapa Kami?</h2>
+          <p>
+            Luminara adalah komunitas fotografer muda yang berfokus pada
+            <strong>fotografi kreatif, desain visual, dan seni modern</strong>.
+            Kami percaya bahwa setiap gambar memiliki cerita, dan tugas kami
+            adalah membekukan momen berharga itu melalui lensa.
+          </p>
+          <p>
+            Berdiri sejak 2025, kami telah mengabadikan berbagai momen mulai
+            dari <em>wedding, portrait, fashion, hingga street photography</em>.
+            Dengan semangat kolaborasi dan inovasi, kami terus berusaha
+            menghadirkan karya terbaik untuk semua klien dan audiens kami.
+          </p>
+          <p>
+            Visi kami sederhana:
+            <strong>Menghidupkan cahaya dalam setiap karya</strong>. ✨
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <p>
+        &copy; 2025 MyPhoto | Dibuat dengan ❤️ oleh
+        <a href="#">Luminara Team</a>
+      </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector("#menu");
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("show");
+      });
+    </script>
+    <script>
+      const words = ["Kami", "Fotografi", "Kreatif", "Art"];
+      let i = 0;
+      let j = 0;
+      let currentWord = "";
+      let isDeleting = false;
+      const typingElement = document.querySelector(".typing");
+
+      function type() {
+        currentWord = words[i];
+        if (!isDeleting) {
+          typingElement.textContent = currentWord.substring(0, j + 1);
+          j++;
+          if (j === currentWord.length) {
+            isDeleting = true;
+            setTimeout(type, 1500);
+            return;
+          }
+        } else {
+          typingElement.textContent = currentWord.substring(0, j - 1);
+          j--;
+          if (j === 0) {
+            isDeleting = false;
+            i = (i + 1) % words.length;
+          }
+        }
+        setTimeout(type, isDeleting ? 80 : 120);
+      }
+
+      type();
+    </script>
+  </body>
+</html>
