@@ -1,0 +1,234 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #eee;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+header {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+.navbar h2 {
+  font-size: 1.7rem;
+  background: linear-gradient(90deg, #ff9800, #ff4d88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar ul li a {
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+.navbar ul li a:hover {
+  color: #ff9800;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url("https://picsum.photos/1600/800?blur=3") center/cover
+    no-repeat;
+  position: relative;
+  color: #fff;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 2px;
+}
+.hero p {
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+}
+
+/* GALLERY */
+.gallery {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 16/9; /* pastikan 16:9 */
+  object-fit: cover; /* isi penuh tanpa merusak rasio */
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.07) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(255, 152, 0, 0.4);
+}
+
+/* FOOTER */
+footer {
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ccc;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer a {
+  color: #ff9800;
+  text-decoration: none;
+  font-weight: 500;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    display: none;
+    padding: 20px;
+    border-radius: 0 0 0 15px;
+  }
+  .navbar ul.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+}
+
+.typing {
+  border-right: 2px solid #ff9800;
+  display: inline-block;
+  padding-right: 5px;
+  animation: blinkCursor 0.8s steps(1) infinite;
+  color: #ff9800;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ff9800;
+  }
+}
+
+/* Halaman Tentang */
+.tentang {
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Halaman Kontak */
+.kontak {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.form-kontak {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-kontak input,
+.form-kontak textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-kontak button {
+  padding: 12px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.form-kontak button:hover {
+  background: #e68900;
+}
